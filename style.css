@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: linear-gradient(#6565b0,#57e410);
+    height: 100vh;
+    font-family: system-ui;
+}
+section{
+    /* background: url('img.jpg'); */
+  height: 100vh;
+    /* اذا اريد العنصر بالنص من فوك اروح للبيرنت واسوي دسبلي  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* معناها العناصر سنتر سنتر  */
+}
+ul{
+    text-align: center;
+}
+/* اذا اريد اضغط ع عنصر الباقي يختفي يعني التاثير يصير ع a */
+ul:hover li a{
+    opacity: 0;
+
+}
+ul li{
+    list-style: none;
+    margin: 14px 0px;
+}
+ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing:4px ;
+    background: darkblue;
+    padding: 6px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    width: 150px;
+    /* ارسد التكبير بطئ اسوي ترانزشن */
+    transition: 0.5s;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: relative;
+    z-index: 10;
+}
+ul li a:hover{
+    /* فائدته من اضغط ع عنصر يسوي هوفر ويكبر بس لازم اسوي الدسبلي انلاين بلوك لان aهو عنصر انلاين */
+    transform: scale(1.5);
+    background: rgb(222, 28, 70);
+    /* من اوكف ع aالشفافية واحد وفوك سويناها صفر  */
+    opacity: 1;
+}
+
+ul li::after{
+    /* حتي من اضغط ع عنصر تطله كتابة ورا */
+    content: attr(data-text);
+    color: white;
+    /* اذا اريد موقع الكتابة بالنص */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    font-weight: 900;
+    text-transform: uppercase;
+    opacity: 0;
+    letter-spacing: 50px;
+    /* البوينتلر حتى بس من اضغط ع عنصر يصير تاثير */
+    pointer-events: none;
+    transition: 0.5s;
+
+}
+ul li:hover:after{
+    opacity: 0.5;
+    letter-spacing: 5px;
+}
